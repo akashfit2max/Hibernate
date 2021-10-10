@@ -1,5 +1,7 @@
 package com.spring.hibernate;
 
+import java.util.Date;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -21,6 +23,14 @@ public class App {
 
 		Student student = new Student(2, "ashish", "delhi");
 
+//		creating object of address
+		Address address = new Address();
+		address.setStreet("IAF Road");
+		address.setCity("Chennai");
+		address.setOpen(true);
+		address.setAddedDate(new Date());
+		address.setX(123.3453);
+
 //		1st way = opening a session
 		/*
 		 * Session session = factory.openSession(); session.save(student);
@@ -31,8 +41,10 @@ public class App {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		session.save(student);
+		session.save(address);
 		transaction.commit();
 		session.close();
+		System.out.println("done");
 
 	}
 }
