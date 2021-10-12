@@ -11,8 +11,10 @@
 		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
 		<property name="hbm2ddl.auto">create</property>
 		<property name="show_sql">true</property>
-		<mapping class="com.spring.hibernate.Student" />
-		<mapping class="com.spring.hibernate.Address" />
+	<!-- 	<mapping class="com.spring.hibernate.Student" />
+		<mapping class="com.spring.hibernate.Address" /> -->
+		<mapping class="com.spring.hibernate.map.Question" />
+		<mapping class="com.spring.hibernate.map.Answer" />
 	</session-factory>
 </hibernate-configuration>
 

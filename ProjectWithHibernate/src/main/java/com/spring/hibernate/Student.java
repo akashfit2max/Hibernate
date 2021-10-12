@@ -13,7 +13,7 @@ public class Student {
 	private String name;
 	private String city;
 
-//	embeedable 
+//	embeedable object i.e we are adding the fields of certificate to the address field
 	private Certificate certificate;
 
 	public Certificate getCertificate() {
