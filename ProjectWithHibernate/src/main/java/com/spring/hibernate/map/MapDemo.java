@@ -69,12 +69,18 @@ public class MapDemo {
 //		session.save(a2);
 //		session.save(a3);
 
+//		getting data from table
 		Question question = (Question) session.get(Question.class, 1221);
 		System.out.println(question.getQuestion());
 
-		for (Answer answer : question.getAnswers()) {
-			System.out.println(answer.getAnswer());
-		}
+//		for (Answer answer : question.getAnswers()) {
+//			System.out.println(answer.getAnswer());
+//		}
+
+//		lazy loading
+
+		System.out.println(question.getQuestionId());
+		System.out.println(question.getAnswers().size());
 
 		tx.commit();
 		session.close();

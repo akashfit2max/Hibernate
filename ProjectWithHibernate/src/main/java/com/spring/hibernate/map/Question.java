@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -18,7 +19,7 @@ public class Question {
 
 	private String question;
 
-	@OneToMany(mappedBy = "question")
+	@OneToMany(mappedBy = "question", fetch = FetchType.EAGER)
 	private List<Answer> answers;
 
 	public List<Answer> getAnswers() {
