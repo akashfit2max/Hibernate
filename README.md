@@ -12,3 +12,9 @@ hibernate learnings from scratch
 - @temporal = format to save date
 - @lob = large object
 - @onetoone , @manytoone etc etc .............
+
+
+## Fetch type
+2 types => lazy and eager
+1. eager = design patter in which data loads on the spot
+2. lazy = data loads only when we explicitly call the getter and setter methods
