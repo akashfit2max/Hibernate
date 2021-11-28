@@ -4,11 +4,9 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Question {
@@ -17,10 +15,26 @@ public class Question {
 	@Column(name = "question_id")
 	private int questionId;
 
-	private String question;
+	private String qstn;
 
-	@OneToMany(mappedBy = "question", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "question")
 	private List<Answer> answers;
+
+	public int getQuestionId() {
+		return questionId;
+	}
+
+	public void setQuestionId(int questionId) {
+		this.questionId = questionId;
+	}
+
+	public String getQstn() {
+		return qstn;
+	}
+
+	public void setQstn(String qstn) {
+		this.qstn = qstn;
+	}
 
 	public List<Answer> getAnswers() {
 		return answers;
@@ -30,11 +44,23 @@ public class Question {
 		this.answers = answers;
 	}
 
+	public Question(int questionId, String qstn, List<Answer> answers) {
+		super();
+		this.questionId = questionId;
+		this.qstn = qstn;
+		this.answers = answers;
+	}
+
 	public Question() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	
+	
+	
+	
 //	one to one mapping k lie neeche wala code
 
 //	@OneToOne
@@ -55,28 +81,5 @@ public class Question {
 //		this.question = question;
 //		this.answer = answer;
 //	}
-
-	public int getQuestionId() {
-		return questionId;
-	}
-
-	public void setQuestionId(int questionId) {
-		this.questionId = questionId;
-	}
-
-	public String getQuestion() {
-		return question;
-	}
-
-	public void setQuestion(String question) {
-		this.question = question;
-	}
-
-	public Question(int questionId, String question, List<Answer> answers) {
-		super();
-		this.questionId = questionId;
-		this.question = question;
-		this.answers = answers;
-	}
 
 }

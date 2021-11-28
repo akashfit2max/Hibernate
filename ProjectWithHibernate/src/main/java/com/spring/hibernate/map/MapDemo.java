@@ -18,12 +18,12 @@ public class MapDemo {
 
 //		creating question
 		Question q1 = new Question();
-		q1.setQuestionId(1221);
-		q1.setQuestion("what is java ?");
+		q1.setQuestionId(136);
+		q1.setQstn("what is java ?");
 
 //		creating answer
 		Answer a1 = new Answer();
-		a1.setAnswerId(111);
+		a1.setAnswerId(1432);
 		a1.setAnswer("java is a programming language");
 //		q1.setAnswer(a1);
 
@@ -34,14 +34,14 @@ public class MapDemo {
 
 //		creating answer
 		Answer a2 = new Answer();
-		a2.setAnswerId(121);
+		a2.setAnswerId(124231);
 //		a2.setAnswer("it is a api for storing collections");
 		a2.setAnswer("java is open source");
 //		q2.setAnswer(a2);
 
 //		creating answer
 		Answer a3 = new Answer();
-		a3.setAnswerId(131);
+		a3.setAnswerId(133121);
 		a3.setAnswer("java is very flixible");
 
 //		making a list of answers
@@ -64,14 +64,14 @@ public class MapDemo {
 //		session.save(a1);
 //		session.save(a2);
 
-//		session.save(q1);
-//		session.save(a1);
-//		session.save(a2);
-//		session.save(a3);
+		session.save(q1);
+		session.save(a1);
+		session.save(a2);
+		session.save(a3);
 
 //		getting data from table
-		Question question = (Question) session.get(Question.class, 1221);
-		System.out.println(question.getQuestion());
+//		Question question = (Question) session.get(Question.class, 1221);
+//		System.out.println(question.getQuestion());
 
 //		for (Answer answer : question.getAnswers()) {
 //			System.out.println(answer.getAnswer());
@@ -79,8 +79,8 @@ public class MapDemo {
 
 //		lazy loading
 
-		System.out.println(question.getQuestionId());
-		System.out.println(question.getAnswers().size());
+//		System.out.println(question.getQuestionId());
+//		System.out.println(question.getAnswers().size());
 
 		tx.commit();
 		session.close();

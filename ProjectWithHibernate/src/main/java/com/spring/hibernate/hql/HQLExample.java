@@ -1,14 +1,15 @@
 package com.spring.hibernate.hql;
 
+import java.util.Arrays;
 import java.util.List;
 
-import org.hibernate.Query;
+import org.hibernate.query.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import com.spring.hibernate.states.Student;
+import com.spring.hibernate.Student;
 
 // hql using mystudent table 
 public class HQLExample {
@@ -46,13 +47,36 @@ public class HQLExample {
 //		deleting data
 //		we need to open transaction
 		Transaction tx = session.beginTransaction();
-		Query query2 = session.createQuery("Delete from Student s where s.city=:c");
-		query2.setParameter("c", "BBSR");
-		int deleted = query2.executeUpdate();
-		System.out.println("Deleted: " + deleted);
-		tx.commit();
+				
+//		DELET QUERY
+//		Query query2 = session.createQuery("Delete from Student s where s.city=:c");
+//		query2.setParameter("c", "BBSR");
+//		int deleted = query2.executeUpdate();
+//		System.out.println("Deleted: " + deleted);
+
+//		update query
+//		Query query2 = session.createQuery("update Student s set s.city=:c where s.name=:n");
+//		query2.setParameter("c", "goa");
+//		query2.setParameter("n", "amrita");
+//		int updated = query2.executeUpdate();
+//		System.out.println("Updated data = " + updated);
+
+//		tx.commit();
+
+		
+		
+//		join column
+		Query query3 = session.createQuery("select q.questionId, q.qstn, a.answer from Question q inner join q.answers as a");
+
+//		 object of object array
+		List<Object[]> list = query3.getResultList();
+		for (Object[] objects : list) {
+			System.out.println(Arrays.toString(objects));
+		}
+		
 		session.close();
 
+		
 		factory.close();
 
 	}
