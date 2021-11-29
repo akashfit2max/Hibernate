@@ -2,10 +2,11 @@ package com.spring.hibernate.map;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -17,7 +18,7 @@ public class Question {
 
 	private String qstn;
 
-	@OneToMany(mappedBy = "question")
+	@OneToMany(mappedBy = "question", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Answer> answers;
 
 	public int getQuestionId() {
@@ -56,11 +57,6 @@ public class Question {
 		// TODO Auto-generated constructor stub
 	}
 
-	
-	
-	
-	
-	
 //	one to one mapping k lie neeche wala code
 
 //	@OneToOne

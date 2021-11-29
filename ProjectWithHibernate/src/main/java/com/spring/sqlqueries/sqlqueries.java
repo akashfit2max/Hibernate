@@ -20,6 +20,7 @@ public class sqlqueries {
 
 		NativeQuery nq = s.createSQLQuery(query);
 
+//		iits giving one column as an object array
 		List<Object[]> list = nq.list();
 
 		for (Object[] student : list) {

@@ -41,11 +41,10 @@ public class Answer {
 		this.question = question;
 	}
 
-	public Answer(int answerId, String answer, Question question) {
+	public Answer(int answerId, String answer) {
 		super();
 		this.answerId = answerId;
 		this.answer = answer;
-		this.question = question;
 	}
 
 	public Answer() {
